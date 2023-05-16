@@ -1,4 +1,8 @@
 import SmallFilmCard from '../../components/small-film-card/small-film-card';
+import { store } from '../../store';
+import { loadPromo } from '../../store/api-actions';
+
+store.dispatch(loadPromo());
 
 function addSmallFilmCard(count:number): JSX.Element[]
 {
