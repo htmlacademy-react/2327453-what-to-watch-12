@@ -1,12 +1,13 @@
 import { createReducer } from '@reduxjs/toolkit';
+import { Film } from '../types/film';
 import { promoLoaded } from './action';
 
 type state = {
-  promo: object;
+  promo: Film | null;
 }
 
 const initialState: state = {
-  promo: {}
+  promo: null
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -16,4 +17,4 @@ const reducer = createReducer(initialState, (builder) => {
     });
 });
 
-export {reducer};
+export { reducer };
