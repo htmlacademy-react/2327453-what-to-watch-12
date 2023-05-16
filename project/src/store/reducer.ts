@@ -1,5 +1,5 @@
-import {createReducer} from '@reduxjs/toolkit';
-import {loadedPromo} from './action';
+import { createReducer } from '@reduxjs/toolkit';
+import { promoLoaded } from './action';
 
 type state = {
   promo: object;
@@ -11,7 +11,7 @@ const initialState: state = {
 
 const reducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(loadedPromo, (state, action) => {
+    .addCase(promoLoaded, (state, action) => {
       state.promo = action.payload;
     });
 });
