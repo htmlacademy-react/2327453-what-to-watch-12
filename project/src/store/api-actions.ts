@@ -3,6 +3,7 @@ import { AppDispatch, State } from '../types/state';
 import { AxiosInstance } from 'axios';
 import { promoLoaded } from './action';
 import { APIRoute } from '../const';
+import { Film } from '../types/film';
 
 type payload = {
   dispatch: AppDispatch;
@@ -13,7 +14,7 @@ type payload = {
 export const loadPromo = createAsyncThunk<void, undefined, payload>(
   'data/loadPromo',
   async (_arg, { dispatch, extra: api }) => {
-    const { data } = await api.get<object>(APIRoute.Promo);
+    const { data } = await api.get<Film>(APIRoute.Promo);
     dispatch(promoLoaded(data));
   }
 );
