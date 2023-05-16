@@ -4,11 +4,13 @@ import { AxiosInstance } from 'axios';
 import { promoLoaded } from './action';
 import { APIRoute } from '../const';
 
-export const loadPromo = createAsyncThunk<void, undefined, {
+type payload = {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
-}>(
+};
+
+export const loadPromo = createAsyncThunk<void, undefined, payload>(
   'data/loadPromo',
   async (_arg, { dispatch, extra: api }) => {
     const { data } = await api.get<object>(APIRoute.Promo);
