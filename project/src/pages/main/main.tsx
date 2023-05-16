@@ -5,8 +5,6 @@ import { useAppSelector } from '../../hooks';
 
 store.dispatch(loadPromo());
 
-const promo = useAppSelector((state) => state.promo);
-
 function addSmallFilmCard(count:number): JSX.Element[]
 {
   const result: JSX.Element[] = [];
@@ -19,6 +17,8 @@ function addSmallFilmCard(count:number): JSX.Element[]
 }
 
 export default function Main(): JSX.Element {
+  const promo = useAppSelector((state) => state.promo);
+
   return (
     <>
       <section className="film-card">
@@ -52,7 +52,7 @@ export default function Main(): JSX.Element {
         <div className="film-card__wrap">
           <div className="film-card__info">
             <div className="film-card__poster">
-              <img src={promo?.posterImage} alt={`${promo?.name} poster`} width="218" height="327" />
+              <img src={promo?.posterImage} alt={`${promo?.name ?? ''} poster`} width="218" height="327" />
             </div>
 
             <div className="film-card__desc">
