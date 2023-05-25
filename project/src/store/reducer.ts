@@ -4,10 +4,12 @@ import { promoLoaded } from './action';
 
 type state = {
   promo: Film | null;
+  isUserAuthorized: boolean;
 }
 
 const initialState: state = {
-  promo: null
+  promo: null,
+  isUserAuthorized: false
 };
 
 const reducer = createReducer(initialState, (builder) => {
