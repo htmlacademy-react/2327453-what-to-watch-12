@@ -3,14 +3,20 @@ import React from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {AppRoute} from "../../const";
 import SignIn from "../../pages/sign-in/sign-in";
+import MyList from "../../pages/my-list/my-list";
+import MoviePage from "../../pages/movie-page/movie-page";
+import AddReview from "../../pages/add-review/add-review";
 
 function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route path={AppRoute.Main}>
-          <Route index element={<Main/>}/>
-          <Route path={AppRoute.SignIn} element={<SignIn/>}/>
+          <Route index element={<Main />}/>
+          <Route path={AppRoute.SignIn} element={<SignIn />}/>
+          <Route path={AppRoute.MyList} element={<MyList />}/>
+          <Route path={AppRoute.Film } element={<MoviePage />}/>
+          <Route path={AppRoute.AddReview } element={<AddReview />}/>
         </Route>
       </Routes>
     </BrowserRouter>
