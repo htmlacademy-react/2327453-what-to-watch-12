@@ -2,6 +2,8 @@ import SmallFilmCard from '../../components/small-film-card/small-film-card';
 import { store } from '../../store';
 import { loadPromo } from '../../store/api-actions';
 import { useAppSelector } from '../../hooks';
+import {Link} from 'react-router-dom';
+import {AppRoute} from '../../const';
 
 store.dispatch(loadPromo());
 
@@ -73,7 +75,7 @@ export default function Main(): JSX.Element {
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"></use>
                   </svg>
-                  <span>My list</span>
+                  <span><Link to={AppRoute.MyList}>My list</Link></span>
                   <span className="film-card__count">9</span>
                 </button>
               </div>
