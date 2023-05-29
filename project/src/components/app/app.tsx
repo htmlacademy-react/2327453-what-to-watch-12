@@ -8,6 +8,7 @@ import MoviePage from '../../pages/movie-page/movie-page';
 import AddReview from '../../pages/add-review/add-review';
 import PrivateRoute from '../private-route/private-route';
 import NotFound from '../../pages/not-found/not-found';
+import Player from '../../pages/player/Player';
 
 function App(): JSX.Element {
   return (
@@ -24,6 +25,7 @@ function App(): JSX.Element {
           />
           <Route path={AppRoute.Film } element={<MoviePage />}/>
           <Route path={AppRoute.AddReview } element={<AddReview />}/>
+          <Route path={AppRoute.Player } element={<Player />}/>
           <Route path={AppRoute.NotFound } element={<NotFound />}/>
         </Route>
       </Routes>
