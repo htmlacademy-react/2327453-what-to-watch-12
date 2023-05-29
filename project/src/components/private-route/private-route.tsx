@@ -1,9 +1,9 @@
-﻿import {useAppSelector} from "../../hooks";
-import {Navigate} from "react-router-dom";
-import {AppRoute} from "../../const";
+import {useAppSelector} from '../../hooks';
+import {Navigate} from 'react-router-dom';
+import {AppRoute} from '../../const';
 
 type privateRouteProps = {
-  children: JSX.Element
+  children: JSX.Element;
 }
 
 export default function PrivateRoute(props: privateRouteProps): JSX.Element {
