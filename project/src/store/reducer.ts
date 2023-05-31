@@ -21,8 +21,7 @@ const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(filmsLoaded, (state, action) => {
       state.films = action.payload;
-    })
-  ;
+    });
 });
 
 export { reducer };
