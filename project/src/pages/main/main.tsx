@@ -1,22 +1,11 @@
-import SmallFilmCard from '../../components/small-film-card/small-film-card';
 import { store } from '../../store';
 import { loadPromo } from '../../store/api-actions';
 import { useAppSelector } from '../../hooks';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const';
+import FilmsList from '../../components/films-list/films-list';
 
 store.dispatch(loadPromo());
-
-function addSmallFilmCard(count:number): JSX.Element[]
-{
-  const result: JSX.Element[] = [];
-  for(let i = 0; i < count; i++)
-  {
-    result.push(<SmallFilmCard />);
-
-  }
-  return result;
-}
 
 export default function Main(): JSX.Element {
   const promo = useAppSelector((state) => state.promo);
@@ -121,9 +110,7 @@ export default function Main(): JSX.Element {
             </li>
           </ul>
 
-          <div className="catalog__films-list">
-            {addSmallFilmCard(20)}
-          </div>
+          <FilmsList />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
