@@ -22,7 +22,7 @@ export const loadPromo = createAsyncThunk<void, undefined, payload>(
 export const loadFilms = createAsyncThunk<void, undefined, payload>(
   'data/loadFilms',
   async (_arg, { dispatch, extra: api }) => {
-    const { data } = await api.get<Films>(APIRoute.Promo);
+    const { data } = await api.get<Films>(APIRoute.Films);
     dispatch(filmsLoaded(data));
   }
 );
