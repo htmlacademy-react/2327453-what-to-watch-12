@@ -10,7 +10,11 @@ function addSmallFilmCard(films: Films, count: number): JSX.Element[]
   for(let i = 0; i < count; i++)
   {
     const film = films[i];
-    result.push(<SmallFilmCard film={film} />);
+    if (!film)
+    {
+      continue;
+    }
+    result.push(<SmallFilmCard film={film} key={film.id}/>);
 
   }
   return result;
