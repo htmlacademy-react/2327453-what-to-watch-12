@@ -12,3 +12,7 @@ export enum AppRoute {
   Player = '/player/:id',
   NotFound = '*'
 }
+
+export enum Settings {
+  MaxFilmsAtList = 8,
+}
