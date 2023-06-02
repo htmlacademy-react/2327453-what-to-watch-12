@@ -11,8 +11,8 @@ type SmallFilmCardProps = {
 export default function SmallFilmCard({film, onMouseEnter, onMouseLeave}: SmallFilmCardProps): JSX.Element {
   return (
     <article className="small-film-card catalog__films-card"
-             onMouseEnter={() => onMouseEnter(film.id)}
-             onMouseLeave={() => onMouseLeave()}
+      onMouseEnter={() => onMouseEnter(film.id)}
+      onMouseLeave={() => onMouseLeave()}
     >
       <Link className="small-film-card__link" to={generatePath(AppRoute.Film, {id : film.id.toString()})}>
         <div className="small-film-card__image">
