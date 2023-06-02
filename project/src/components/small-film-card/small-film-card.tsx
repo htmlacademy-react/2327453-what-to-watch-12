@@ -4,14 +4,14 @@ import {generatePath, Link} from 'react-router-dom';
 
 type SmallFilmCardProps = {
   film: Film;
-  onMouseEnter(filmId: number): void;
+  onMouseEnter(): void;
   onMouseLeave(): void;
 }
 
 export default function SmallFilmCard({film, onMouseEnter, onMouseLeave}: SmallFilmCardProps): JSX.Element {
   return (
     <article className="small-film-card catalog__films-card"
-      onMouseEnter={() => onMouseEnter(film.id)}
+      onMouseEnter={() => onMouseEnter()}
       onMouseLeave={() => onMouseLeave()}
     >
       <Link className="small-film-card__link" to={generatePath(AppRoute.Film, {id : film.id.toString()})}>
