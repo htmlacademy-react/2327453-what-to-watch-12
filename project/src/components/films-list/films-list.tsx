@@ -3,15 +3,12 @@ import {store} from '../../store';
 import {loadFilms} from '../../store/api-actions';
 import {useAppSelector} from '../../hooks';
 import {Settings} from '../../const';
-
-type FilmsListProps = {
-  onMouseEnter(filmId: number): void;
-  onMouseLeave(): void;
-}
+import {useState} from "react";
 
 store.dispatch(loadFilms());
 
-export default function FilmsList({onMouseEnter, onMouseLeave}: FilmsListProps): JSX.Element {
+export default function FilmsList(): JSX.Element {
+  const [hoveredCardId, setHoveredCardId] = useState<number | null>(null);
   const films = useAppSelector((state) => state.films);
   return (
     <div className="catalog__films-list">
@@ -19,7 +16,12 @@ export default function FilmsList({onMouseEnter, onMouseLeave}: FilmsListProps):
         films
           ?
           films.slice(0, Settings.MaxFilmsAtList).map<JSX.Element>((f) =>
-            <SmallFilmCard film={f} key={f.id} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />
+            <SmallFilmCard
+              film={f}
+              key={f.id}
+              onMouseEnter={() => setHoveredCardId(f.id)}
+              onMouseLeave={() => setHoveredCardId(null)}
+            />
           )
           :
           <>No any films</>
