@@ -1,7 +1,7 @@
 import { store } from '../../store';
 import { loadPromo } from '../../store/api-actions';
 import { useAppSelector } from '../../hooks';
-import {Link} from 'react-router-dom';
+import {generatePath, Link} from 'react-router-dom';
 import {AppRoute} from '../../const';
 import FilmsList from '../../components/films-list/films-list';
 
@@ -58,7 +58,7 @@ export default function Main(): JSX.Element {
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
-                  <span>Play</span>
+                  <span><Link to={generatePath(AppRoute.Film, {id : promo?.id.toString() ?? ''})}>Play</Link></span>
                 </button>
                 <button className="btn btn--list film-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
