@@ -21,8 +21,8 @@ export default function FilmsList(): JSX.Element {
               key={f.id}
               onMouseEnter={() => setHoveredCardId(f.id)}
               onMouseLeave={() => setHoveredCardId(null)}
-            />)
-          )
+            />
+            ))
           :
           <>No any films</>
       }
