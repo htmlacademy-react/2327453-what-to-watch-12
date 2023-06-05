@@ -1,3 +1,6 @@
+import {AppRoute} from "../../const";
+import {Link} from "react-router-dom";
+
 export default function MoviePage(): JSX.Element {
   return (
     <>
@@ -11,11 +14,11 @@ export default function MoviePage(): JSX.Element {
 
           <header className="page-header film-card__head">
             <div className="logo">
-              <a href="main.html" className="logo__link">
+              <Link to={AppRoute.Main} className="logo__link">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
-              </a>
+              </Link>
             </div>
 
             <ul className="user-block">
@@ -43,16 +46,16 @@ export default function MoviePage(): JSX.Element {
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
-                  <span>Play</span>
+                  <span><Link to={AppRoute.Player}>Play</Link></span>
                 </button>
                 <button className="btn btn--list film-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"></use>
                   </svg>
-                  <span>My list</span>
+                  <span><Link to={AppRoute.MyList}>My list</Link></span>
                   <span className="film-card__count">9</span>
                 </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
+                <Link to={AppRoute.AddReview} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
