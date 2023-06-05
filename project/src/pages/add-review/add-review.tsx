@@ -1,4 +1,4 @@
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, useState} from 'react';
 
 export default function AddReview(): JSX.Element {
   const [review, setReview] = useState({});
