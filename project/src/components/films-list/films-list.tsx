@@ -8,7 +8,7 @@ import {useState} from 'react';
 store.dispatch(loadFilms());
 
 export default function FilmsList(): JSX.Element {
-  const [hoveredCardId, setHoveredCardId] = useState<number | null>(null);
+  const [, setHoveredCardId] = useState<number | null>(null);
   const films = useAppSelector((state) => state.films);
   return (
     <div className="catalog__films-list">
