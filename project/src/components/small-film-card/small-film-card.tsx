@@ -1,8 +1,8 @@
 import {Film} from '../../types/film';
 import {AppRoute} from '../../const';
 import {generatePath, Link} from 'react-router-dom';
-import Player from "../player/player";
-import {useState} from "react";
+import Player from '../player/player';
+import {useState} from 'react';
 
 type SmallFilmCardProps = {
   film: Film;

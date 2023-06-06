@@ -16,12 +16,7 @@ export default function FilmsList(): JSX.Element {
         films
           ?
           films.slice(0, Settings.MaxFilmsAtList).map<JSX.Element>((f) =>
-            (<SmallFilmCard
-              film={f}
-              key={f.id}
-              onMouseEnter={() => setHoveredCardId(f.id)}
-              onMouseLeave={() => setHoveredCardId(null)}
-            />
+            (<SmallFilmCard film={f} key={f.id} onMouseEnter={() => setHoveredCardId(f.id)} onMouseLeave={() => setHoveredCardId(null)}/>
             ))
           :
           <>No any films</>
