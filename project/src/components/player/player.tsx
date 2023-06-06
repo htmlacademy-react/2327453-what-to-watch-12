@@ -1,12 +1,12 @@
 ﻿import { useEffect, useRef } from 'react';
 
 type CardPlayerProps = {
-  preview: string;
-  trailer: string | undefined;
+  previewImage: string;
+  previewVideoLink: string | undefined;
   play: boolean;
 };
 
-export default function Player({ preview, trailer, play }: CardPlayerProps): JSX.Element {
+export default function Player({ previewImage, previewVideoLink, play }: CardPlayerProps): JSX.Element {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -28,8 +28,8 @@ export default function Player({ preview, trailer, play }: CardPlayerProps): JSX
   }, [play]);
 
   return (
-    <video ref={videoRef} className="small-film-card__image" muted loop poster={preview}>
-      <source src={trailer} />
+    <video ref={videoRef} className="small-film-card__image" muted loop poster={previewImage}>
+      <source src={previewVideoLink} />
     </video>
   );
 }
