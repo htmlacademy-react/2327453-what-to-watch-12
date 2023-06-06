@@ -1,4 +1,4 @@
-import ReviewForm from "../../components/review-form/review-form";
+import ReviewForm from '../../components/review-form/review-form';
 
 export default function AddReview(): JSX.Element {
   return (
