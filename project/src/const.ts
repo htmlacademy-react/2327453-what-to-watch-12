@@ -1,5 +1,6 @@
 export enum APIRoute {
-  Promo = '/promo'
+  Promo = '/promo',
+  Films = '/films'
 }
 
 export enum AppRoute {
@@ -10,4 +11,8 @@ export enum AppRoute {
   AddReview = '/films/:id/review',
   Player = '/player/:id',
   NotFound = '*'
+}
+
+export enum Settings {
+  MaxFilmsAtList = 8,
 }

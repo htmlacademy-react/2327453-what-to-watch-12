@@ -1,22 +1,11 @@
-import SmallFilmCard from '../../components/small-film-card/small-film-card';
 import { store } from '../../store';
 import { loadPromo } from '../../store/api-actions';
 import { useAppSelector } from '../../hooks';
-import {Link} from 'react-router-dom';
+import {generatePath, Link} from 'react-router-dom';
 import {AppRoute} from '../../const';
+import FilmsList from '../../components/films-list/films-list';
 
 store.dispatch(loadPromo());
-
-function addSmallFilmCard(count:number): JSX.Element[]
-{
-  const result: JSX.Element[] = [];
-  for(let i = 0; i < count; i++)
-  {
-    result.push(<SmallFilmCard />);
-
-  }
-  return result;
-}
 
 export default function Main(): JSX.Element {
   const promo = useAppSelector((state) => state.promo);
@@ -69,7 +58,7 @@ export default function Main(): JSX.Element {
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
-                  <span>Play</span>
+                  <span><Link to={generatePath(AppRoute.Film, {id : promo?.id.toString() ?? ''})}>Play</Link></span>
                 </button>
                 <button className="btn btn--list film-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
@@ -121,9 +110,7 @@ export default function Main(): JSX.Element {
             </li>
           </ul>
 
-          <div className="catalog__films-list">
-            {addSmallFilmCard(20)}
-          </div>
+          <FilmsList />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
