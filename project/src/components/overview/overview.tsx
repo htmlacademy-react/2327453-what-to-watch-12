@@ -1,4 +1,4 @@
-﻿import {Film} from "../../types/film";
+import {Film} from '../../types/film';
 
 export default function Overview(film: Film): JSX.Element {
   return (

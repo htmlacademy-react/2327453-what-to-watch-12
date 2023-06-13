@@ -1,6 +1,6 @@
-﻿type tabsProps =
+type tabsProps =
 {
-  [key: string]: string
+  [key: string]: string;
 }
 
 export default function Tabs(props: tabsProps): JSX.Element {
