@@ -1,21 +1,33 @@
+import {useState} from 'react';
+
 type tabsProps =
 {
-  [key: string]: string;
+  [key: string]: JSX.Element;
 }
 
 export default function Tabs(props: tabsProps): JSX.Element {
+  const [activeTab, setActiveTab] = useState<string>('');
+
+  function setClassName(tab:string): string {
+    let classname = 'film-nav__item';
+
+    if (tab === activeTab){
+      classname += ' film-nav__item--active';
+    }
+
+    return classname;
+  }
+
   return (
     <nav className="film-nav film-card__nav">
       <ul className="film-nav__list">
-        <li className="film-nav__item film-nav__item--active">
-          <a href="#" className="film-nav__link">Overview</a>
-        </li>
-        <li className="film-nav__item">
-          <a href="#" className="film-nav__link">Details</a>
-        </li>
-        <li className="film-nav__item">
-          <a href="#" className="film-nav__link">Reviews</a>
-        </li>
+        {Object.keys(props).map((key) => (
+          <li className={setClassName(key)} onClick={() => {
+            setActiveTab(key);
+          }}>
+            <a href="#" className="film-nav__link">{props[key]}</a>
+          </li>
+        ))}
       </ul>
     </nav>
   );
