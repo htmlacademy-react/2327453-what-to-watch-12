@@ -1,4 +1,9 @@
-﻿export default function Tabs(): JSX.Element {
+﻿type tabsProps =
+{
+  [key: string]: string
+}
+
+export default function Tabs(props: tabsProps): JSX.Element {
   return (
     <nav className="film-nav film-card__nav">
       <ul className="film-nav__list">
