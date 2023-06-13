@@ -1,6 +1,12 @@
 import {Film} from '../../types/film';
 
-export default function Reviews(film: Film): JSX.Element {
+type overviewProps = {
+  film: Film | undefined;
+}
+
+export default function Reviews(props: overviewProps): JSX.Element {
+  const {film} = props;
+
   return (
     <div className="film-card__reviews film-card__row">
       <div className="film-card__reviews-col">

@@ -1,11 +1,16 @@
 import {useState} from 'react';
 
-type tabsProps =
+type dictionary =
 {
   [key: string]: JSX.Element;
 }
+type tabsProps =
+{
+  items: dictionary;
+}
 
 export default function Tabs(props: tabsProps): JSX.Element {
+  const {items} = props;
   const [activeTab, setActiveTab] = useState<string>('');
 
   function setClassName(tab:string): string {
@@ -21,11 +26,12 @@ export default function Tabs(props: tabsProps): JSX.Element {
   return (
     <nav className="film-nav film-card__nav">
       <ul className="film-nav__list">
-        {Object.keys(props).map((key) => (
-          <li className={setClassName(key)} onClick={() => {
+        {Object.keys(items).map((key) => (
+          <li className={setClassName(key)} key={key} onClick={() => {
             setActiveTab(key);
-          }}>
-            <a href="#" className="film-nav__link">{props[key]}</a>
+          }}
+          >
+            <a href="#" className="film-nav__link">{key}</a>
           </li>
         ))}
       </ul>
