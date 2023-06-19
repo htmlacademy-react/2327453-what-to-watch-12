@@ -25,7 +25,7 @@ export default function Reviews(props: overviewProps): JSX.Element {
 
         <div className="review">
           <blockquote className="review__quote">
-            <p className="review__text">Anderson&apos;s films are too precious for some, but for those of us willing to lose ourselves in them, they&apos;re a delight. `&quot;The Grand Budapest Hotel`&quot; is no different, except that he has added a hint of gravitas to the mix, improving the recipe.</p>
+            <p className="review__text">Anderson&apos;s films are too precious for some, but for those of us willing to lose ourselves in them, they&apos;re a delight. &quot;The Grand Budapest Hotel&quot; is no different, except that he has added a hint of gravitas to the mix, improving the recipe.</p>
 
             <footer className="review__details">
               <cite className="review__author">Bill Goodykoontz</cite>
