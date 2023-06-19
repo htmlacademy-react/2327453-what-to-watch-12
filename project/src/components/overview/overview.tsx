@@ -8,7 +8,7 @@ export default function Overview(props: overviewProps): JSX.Element {
   const {film} = props;
 
   return (
-    <div className="film-card__text film-card__row">
+    <>
       <div className="film-rating">
         <div className="film-rating__score">8,9</div>
         <p className="film-rating__meta">
@@ -25,6 +25,6 @@ export default function Overview(props: overviewProps): JSX.Element {
 
         <p className="film-card__starring"><strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other</strong></p>
       </div>
-    </div>
+    </>
   );
 }
