@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 type dictionary =
 {
@@ -23,18 +23,23 @@ export default function Tabs(props: tabsProps): JSX.Element {
     return classname;
   }
 
+  const firstKey = Object.keys(items)[0];
+  useEffect(() => setActiveTab(firstKey),[firstKey]);
   return (
-    <nav className="film-nav film-card__nav">
-      <ul className="film-nav__list">
-        {Object.keys(items).map((key) => (
-          <li className={setClassName(key)} key={key} onClick={() => {
-            setActiveTab(key);
-          }}
-          >
-            <a href="#" className="film-nav__link">{key}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <>
+      <nav className="film-nav film-card__nav">
+        <ul className="film-nav__list">
+          {Object.keys(items).map((key) => (
+            <li className={setClassName(key)} key={key} onClick={() => {
+              setActiveTab(key);
+            }}
+            >
+              <a className="film-nav__link">{key}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      {items[activeTab]}
+    </>
   );
 }
