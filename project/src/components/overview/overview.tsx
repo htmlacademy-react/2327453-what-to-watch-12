@@ -1,4 +1,5 @@
 import {Film} from '../../types/film';
+import {getRatingDescription} from "../../types/number-extensions";
 
 type overviewProps = {
   film: Film | undefined;
@@ -12,7 +13,7 @@ export default function Overview(props: overviewProps): JSX.Element {
       <div className="film-rating">
         <div className="film-rating__score">{film?.rating}</div>
         <p className="film-rating__meta">
-          <span className="film-rating__level">Very good</span>
+          <span className="film-rating__level">{getRatingDescription(film?.rating)}</span>
           <span className="film-rating__count">{film?.scoresCount} ratings</span>
         </p>
       </div>
