@@ -1,11 +1,20 @@
-import {Film} from '../../types/film';
+import {useEffect} from "react";
+import {loadReviews} from "../../store/api-actions";
+import {store} from "../../store";
+import {useAppSelector} from "../../hooks";
 
 type overviewProps = {
-  film: Film | undefined;
+  filmId: number | undefined;
 }
 
-export default function Reviews(props: overviewProps): JSX.Element {
-  const {film} = props;
+export default function Reviews({filmId}: overviewProps): JSX.Element {
+  const reviews = useAppSelector((state) => state.reviews);
+
+  useEffect(() => {
+    if(filmId) {
+      store.dispatch(loadReviews(filmId));
+    }
+  }, [filmId]);
 
   return (
     <div className="film-card__reviews film-card__row">
