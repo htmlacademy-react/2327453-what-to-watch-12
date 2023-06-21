@@ -19,19 +19,20 @@ export default function Reviews({filmId}: overviewProps): JSX.Element {
   return (
     <div className="film-card__reviews film-card__row">
       <div className="film-card__reviews-col">
-        <div className="review">
-          <blockquote className="review__quote">
-            <p className="review__text">Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director&apos;s funniest and most exquisitely designed films in years.</p>
+        {reviews.map(r => (
+          <div className="review" key={r.id}>
+            <blockquote className="review__quote">
+              <p className="review__text">{r.comment}</p>
 
-            <footer className="review__details">
-              <cite className="review__author">Kate Muir</cite>
-              <time className="review__date" dateTime="2016-12-24">December 24, 2016</time>
-            </footer>
-          </blockquote>
+              <footer className="review__details">
+                <cite className="review__author">{r.user.name}</cite>
+                <time className="review__date" dateTime="2016-12-24">December 24, 2016</time>
+              </footer>
+            </blockquote>
 
-          <div className="review__rating">8,9</div>
-        </div>
-
+            <div className="review__rating">{r.rating}</div>
+          </div>
+        ))}
         <div className="review">
           <blockquote className="review__quote">
             <p className="review__text">Anderson&apos;s films are too precious for some, but for those of us willing to lose ourselves in them, they&apos;re a delight. &quot;The Grand Budapest Hotel&quot; is no different, except that he has added a hint of gravitas to the mix, improving the recipe.</p>
