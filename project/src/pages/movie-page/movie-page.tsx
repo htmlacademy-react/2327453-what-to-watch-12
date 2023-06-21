@@ -79,7 +79,7 @@ export default function MoviePage(): JSX.Element {
               <Tabs items={{
                 'Overview': <Overview film={film} />,
                 'Details': <Details film={film} />,
-                'Reviews': <Reviews film={film} />,
+                'Reviews': <Reviews filmId={film?.id} />,
               }}
               />
             </div>
