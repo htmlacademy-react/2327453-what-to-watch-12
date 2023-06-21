@@ -2,6 +2,7 @@ import {useEffect} from 'react';
 import {loadReviews} from '../../store/api-actions';
 import {store} from '../../store';
 import {useAppSelector} from '../../hooks';
+import {formatDate} from "../../types/date-extensions";
 
 type overviewProps = {
   filmId: number | undefined;
@@ -19,18 +20,18 @@ export default function Reviews({filmId}: overviewProps): JSX.Element {
   return (
     <div className="film-card__reviews film-card__row">
       <div className="film-card__reviews-col">
-        {reviews.map(r => (
-          <div className="review" key={r.id}>
+        {reviews.map(review => (
+          <div className="review" key={review.id}>
             <blockquote className="review__quote">
-              <p className="review__text">{r.comment}</p>
+              <p className="review__text">{review.comment}</p>
 
               <footer className="review__details">
-                <cite className="review__author">{r.user.name}</cite>
-                <time className="review__date" dateTime="2016-12-24">December 24, 2016</time>
+                <cite className="review__author">{review.user.name}</cite>
+                <time className="review__date" dateTime={formatDate(review.date, 'YYYY-MM-DD')}>{formatDate(review.date, 'MMMM DD, YYYY')}</time>
               </footer>
             </blockquote>
 
-            <div className="review__rating">{r.rating}</div>
+            <div className="review__rating">{review.rating}</div>
           </div>
         ))}
         <div className="review">
