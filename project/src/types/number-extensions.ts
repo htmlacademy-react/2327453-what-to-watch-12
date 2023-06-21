@@ -1,4 +1,4 @@
-﻿export function getRatingDescription(rating: number | undefined): string {
+export function getRatingDescription(rating: number | undefined): string {
   switch (rating) {
     case 0:
     case 1:

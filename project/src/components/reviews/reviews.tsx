@@ -1,7 +1,7 @@
-import {useEffect} from "react";
-import {loadReviews} from "../../store/api-actions";
-import {store} from "../../store";
-import {useAppSelector} from "../../hooks";
+import {useEffect} from 'react';
+import {loadReviews} from '../../store/api-actions';
+import {store} from '../../store';
+import {useAppSelector} from '../../hooks';
 
 type overviewProps = {
   filmId: number | undefined;

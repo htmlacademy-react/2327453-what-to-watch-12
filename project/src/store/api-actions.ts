@@ -4,7 +4,7 @@ import { AxiosInstance } from 'axios';
 import {filmsLoaded, promoLoaded, reviewsLoaded} from './action';
 import { APIRoute } from '../const';
 import {Film, Films} from '../types/film';
-import {Reviews} from "../types/review";
+import {Reviews} from '../types/review';
 
 type payload = {
   dispatch: AppDispatch;

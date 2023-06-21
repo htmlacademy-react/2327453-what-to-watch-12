@@ -1,7 +1,7 @@
 import { createReducer } from '@reduxjs/toolkit';
 import {Film, Films} from '../types/film';
 import {filmsLoaded, promoLoaded} from './action';
-import {Reviews} from "../types/review";
+import {Reviews} from '../types/review';
 
 type state = {
   promo: Film | null;

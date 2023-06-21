@@ -1,5 +1,5 @@
 import {Film} from '../../types/film';
-import {getRatingDescription} from "../../types/number-extensions";
+import {getRatingDescription} from '../../types/number-extensions';
 
 type overviewProps = {
   film: Film | undefined;
