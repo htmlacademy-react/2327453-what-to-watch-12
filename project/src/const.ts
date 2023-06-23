@@ -1,7 +1,8 @@
 export enum APIRoute {
   Promo = '/promo',
   Films = '/films',
-  Comments = '/comments'
+  Comments = '/comments',
+  Similar = '/films/{0}/similar'
 }
 
 export enum AppRoute {

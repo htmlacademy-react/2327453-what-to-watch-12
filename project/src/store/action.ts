@@ -5,3 +5,4 @@ import {Reviews} from '../types/review';
 export const promoLoaded = createAction<Film>('promoLoaded');
 export const filmsLoaded = createAction<Films>('filmsLoaded');
 export const reviewsLoaded = createAction<Reviews>('reviewsLoaded');
+export const similarLoaded = createAction<Films>('similarLoaded');

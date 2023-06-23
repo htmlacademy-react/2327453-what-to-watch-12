@@ -35,3 +35,11 @@ export const loadReviews = createAsyncThunk<void, number, payload>(
     dispatch(reviewsLoaded(data));
   }
 );
+
+export const loadSimilar = createAsyncThunk<void, number, payload>(
+  'data/loadSimilar',
+  async (filmId, { dispatch, extra: api }) => {
+    const { data } = await api.get<Films>(APIRoute.Similar.replace('{0}', filmId.toString()));
+    dispatch(reviewsLoaded(data));
+  }
+);
