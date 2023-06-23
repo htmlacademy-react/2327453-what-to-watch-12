@@ -17,4 +17,5 @@ export enum AppRoute {
 
 export enum Settings {
   MaxFilmsAtList = 8,
+  MaxFilmsAtMoreLikeThis = 4,
 }

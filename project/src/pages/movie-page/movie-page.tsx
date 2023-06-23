@@ -1,4 +1,4 @@
-import {AppRoute} from '../../const';
+import {AppRoute, Settings} from '../../const';
 import {Link, useParams} from 'react-router-dom';
 import Tabs from '../../components/tabs/tabs';
 import Overview from '../../components/overview/overview';
@@ -6,11 +6,18 @@ import {useAppSelector} from '../../hooks';
 import Details from '../../components/details/details';
 import Reviews from '../../components/reviews/reviews';
 import FilmsList from '../../components/films-list/films-list';
+import { store } from '../../store';
+import { loadSimilar } from '../../store/api-actions';
 
 export default function MoviePage(): JSX.Element {
   const {id} = useParams();
   const films = useAppSelector((state) => state.films);
   const film = films.find((f) => f.id.toString() === id);
+
+  store.dispatch(loadSimilar(film?.id ?? 0));
+
+  const similarFilms = useAppSelector((state) => state.similar.slice(0, Settings.MaxFilmsAtMoreLikeThis));
+
   return (
     <>
       <section className="film-card film-card--full" style={{backgroundColor: film?.backgroundColor}}>
@@ -92,7 +99,7 @@ export default function MoviePage(): JSX.Element {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmsList />
+          <FilmsList films={similarFilms} />
         </section>
 
         <footer className="page-footer">

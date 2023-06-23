@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AppDispatch, State } from '../types/state';
 import { AxiosInstance } from 'axios';
-import {filmsLoaded, promoLoaded, reviewsLoaded} from './action';
+import {filmsLoaded, promoLoaded, reviewsLoaded, similarLoaded} from './action';
 import { APIRoute } from '../const';
 import {Film, Films} from '../types/film';
 import {Reviews} from '../types/review';
@@ -40,6 +40,6 @@ export const loadSimilar = createAsyncThunk<void, number, payload>(
   'data/loadSimilar',
   async (filmId, { dispatch, extra: api }) => {
     const { data } = await api.get<Films>(APIRoute.Similar.replace('{0}', filmId.toString()));
-    dispatch(reviewsLoaded(data));
+    dispatch(similarLoaded(data));
   }
 );
