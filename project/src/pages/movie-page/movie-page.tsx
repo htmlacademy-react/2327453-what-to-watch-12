@@ -8,13 +8,19 @@ import Reviews from '../../components/reviews/reviews';
 import FilmsList from '../../components/films-list/films-list';
 import { store } from '../../store';
 import { loadSimilar } from '../../store/api-actions';
+import { useEffect } from 'react';
 
 export default function MoviePage(): JSX.Element {
   const {id} = useParams();
   const films = useAppSelector((state) => state.films);
   const film = films.find((f) => f.id.toString() === id);
+  const filmId = film?.id;
 
-  store.dispatch(loadSimilar(film?.id ?? 0));
+  useEffect(() => {
+    if (filmId) {
+      store.dispatch(loadSimilar(filmId));
+    }
+  }, [filmId]);
 
   const similarFilms = useAppSelector((state) => state.similar.slice(0, Settings.MaxFilmsAtMoreLikeThis));
 
