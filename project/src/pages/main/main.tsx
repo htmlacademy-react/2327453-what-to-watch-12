@@ -1,15 +1,16 @@
 import { store } from '../../store';
-import { loadPromo } from '../../store/api-actions';
+import { loadFilms, loadPromo } from '../../store/api-actions';
 import { useAppSelector } from '../../hooks';
 import {generatePath, Link} from 'react-router-dom';
-import {AppRoute} from '../../const';
+import {AppRoute, Settings} from '../../const';
 import FilmsList from '../../components/films-list/films-list';
 
 store.dispatch(loadPromo());
+store.dispatch(loadFilms());
 
 export default function Main(): JSX.Element {
   const promo = useAppSelector((state) => state.promo);
-
+  const films = useAppSelector((state) => state.films.slice(0, Settings.MaxFilmsAtList));
   return (
     <>
       <section className="film-card">
@@ -110,7 +111,7 @@ export default function Main(): JSX.Element {
             </li>
           </ul>
 
-          <FilmsList />
+          <FilmsList films={films} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

@@ -1,21 +1,19 @@
 import SmallFilmCard from '../small-film-card/small-film-card';
-import {store} from '../../store';
-import {loadFilms} from '../../store/api-actions';
-import {useAppSelector} from '../../hooks';
-import {Settings} from '../../const';
 import {useState} from 'react';
+import { Films } from '../../types/film';
 
-store.dispatch(loadFilms());
+type FilmsListProps = {
+  films: Films
+}
 
-export default function FilmsList(): JSX.Element {
+export default function FilmsList({ films }: FilmsListProps): JSX.Element {
   const [, setHoveredCardId] = useState<number | null>(null);
-  const films = useAppSelector((state) => state.films);
   return (
     <div className="catalog__films-list">
       {
         films
           ?
-          films.slice(0, Settings.MaxFilmsAtList).map<JSX.Element>((f) =>
+          films.map<JSX.Element>((f) =>
             (<SmallFilmCard film={f} key={f.id} onMouseEnter={() => setHoveredCardId(f.id)} onMouseLeave={() => setHoveredCardId(null)}/>
             ))
           :
