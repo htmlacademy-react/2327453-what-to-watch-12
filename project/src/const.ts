@@ -1,6 +1,8 @@
 export enum APIRoute {
   Promo = '/promo',
-  Films = '/films'
+  Films = '/films',
+  Comments = '/comments',
+  Similar = '/films/{0}/similar'
 }
 
 export enum AppRoute {
@@ -15,4 +17,5 @@ export enum AppRoute {
 
 export enum Settings {
   MaxFilmsAtList = 8,
+  MaxFilmsAtMoreLikeThis = 4,
 }
