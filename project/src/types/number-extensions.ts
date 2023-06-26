@@ -28,5 +28,5 @@ export function getHoursAndMinutes(runTime: number | undefined): string {
   const hours = Math.trunc(runTime / 60);
   const minutes = Math.trunc(runTime - hours * 60);
 
-  return `${hours} : ${minutes}`;
+  return `${hours}h ${minutes}m`;
 }
